@@ -33,8 +33,7 @@ def parse_pastes_hrefs(archive_document):
 
 def parse_paste(paste_document):
     # parse paste meta_data & content
-    title = author = content = ""
-    date = None
+    title = author = content = date = None
     title_list = paste_document.xpath("//div[@class='paste_box_line1']/@title")
     if title_list:
         title = title_list[0].strip()
