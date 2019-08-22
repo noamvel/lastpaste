@@ -1,10 +1,11 @@
 class Paste:
 
-    def __init__(self, author, title, content, time):
+    def __init__(self, title, author, date, content):
         self.author = author
         self.title = title
         self.content = content
-        self.date = time.format('YYYY-MM-DD_HH:mm')
+        self.date = date
+        # self.date = time.format('YYYY-MM-DD_HH:mm')  should convert to UTC
 
     def __repr__(self):
-        return "Title: {}\nAuthor: {}\nDate:{}\nContent:{}".format(self.title, self.author, self.date, self.content)
+        return "Title: {}\nAuthor: {}\nDate: {}\nContent: {}\n\n".format(self.title, self.author, self.date, self.content)

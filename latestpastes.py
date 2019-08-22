@@ -1,6 +1,7 @@
 import requests
 import arrow
 from lxml import html
+from paste import Paste
 
 pb_home_url = 'https://pastebin.com'
 pb_archive_url = pb_home_url + '/archive'
@@ -32,10 +33,8 @@ def parse_pastes_hrefs(archive_document):
 
 def parse_paste(paste_document):
     # parse paste meta_data & content
-    title = None
-    author = None
+    title = author = content = ""
     date = None
-    content = None
     title_list = paste_document.xpath("//div[@class='paste_box_line1']/@title")
     if title_list:
         title = title_list[0].strip()
@@ -48,23 +47,18 @@ def parse_paste(paste_document):
             author = author_list[0].tail.strip()
         if date_list:
             date = date_list[0]
-    return {
-        'title': title,
-        'author': author,
-        'date': date,
-        'content': content
-    }
+    return Paste (title, author, date, content)
 
 
-def write_to_file(pastes, time):
-    time.format('YYYY-MM-DD_HH:mm')
-    filename = '{}_pastes.txt'.format(time.format('YYYY-MM-DD_HH:mm'))
-    file = open(filename, "w")
-    file.writelines(pastes)
-    file.close()
+def write_to_file(filename, paste):
+    file = open(filename, "a")
+    file.write(paste.__repr__())
+    file.close()  # should close after every object ?
 
 
-time = arrow.utcnow()
+time = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
+filename = '{}_pastes.txt'.format(time)
+
 doc = get_document(pb_archive_url)
 pastes_hrefs = parse_pastes_hrefs(doc)
 
@@ -73,9 +67,11 @@ for href in pastes_hrefs:
     print(paste_url)
     paste_doc = get_document(paste_url)
     # async?
-    paste_model = parse_paste(paste_doc)
-    print(paste_model)
-    #write_to_file(paste_model, time)
+    paste = parse_paste(paste_doc)
+    print(paste)
+    write_to_file(filename, paste)
+
+
 
 
 
