@@ -48,13 +48,12 @@ def parse_paste(paste_document):
             author = author_list[0].tail.strip()
         if date_list:
             date = date_list[0]
-    paste = {
+    return {
         'title': title,
         'author': author,
         'date': date,
         'content': content
     }
-    return paste
 
 
 def write_to_file(pastes, time):
