@@ -1,1 +1,1 @@
-# lastpaste
+# latestpastes
