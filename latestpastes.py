@@ -50,14 +50,9 @@ def parse_paste(paste_document):
     return Paste (title, author, date, content)
 
 
-def write_to_file(filename, paste):
-    file = open(filename, "a")
-    file.write(paste.__repr__())
-    file.close()  # should close after every object ?
-
-
 time = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
 filename = '{}_pastes.txt'.format(time)
+file = open(filename, "a")
 
 doc = get_document(pb_archive_url)
 pastes_hrefs = parse_pastes_hrefs(doc)
@@ -69,7 +64,9 @@ for href in pastes_hrefs:
     # async?
     paste = parse_paste(paste_doc)
     print(paste)
-    write_to_file(filename, paste)
+    file.write(paste.__repr__())
+file.close()
+
 
 
 
