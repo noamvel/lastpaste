@@ -39,7 +39,6 @@ def parse_paste(paste_text):
             author = author_list[0].tail.strip()
         if date_list:
             date = date_list[0]
-    # textarea id="paste_code"
     content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0].strip()
     paste = Paste (title, author, date, content)
     return paste

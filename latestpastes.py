@@ -9,10 +9,10 @@ logging.info('\nJob {} started'.format(time))
 filename = 'pb_jobs/{}_pastes.txt'.format(time)
 file = open(filename, "a")
 
-archive_txt = PastebinArchiveClient().get()
-pastes_hrefs = parse_archive(archive_txt)
+archive = PastebinArchiveClient().get()
+hrefs = parse_archive(archive)
 logging.info('Writing to File {}'.format(file.name))
-for href in pastes_hrefs:
+for href in hrefs:
     paste_txt = PastebinSinglePasteClient(href).get()
     paste = parse_paste(paste_txt)
     print(paste)
