@@ -9,4 +9,4 @@ class Paste:
         # defaults values - take care
 
     def __repr__(self):
-        return "Title: {}\nAuthor: {}\nDate: {}\nContent: {}\n\n".format(self.title, self.author, self.date, self.content)
+        return "Title: {}\nAuthor: {}\nDate: {}\nContent:\n{}\n\n".format(self.title, self.author, self.date, self.content)

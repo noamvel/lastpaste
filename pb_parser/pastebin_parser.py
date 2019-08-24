@@ -25,6 +25,8 @@ def parse_paste(paste_text):
     # parse paste meta_data & content
     title = author = content = date = None
     paste_doc = html.document_fromstring(paste_text)
+    if not paste_doc:
+        return None
     title_list = paste_doc.xpath("//div[@class='paste_box_line1']/@title")
     if title_list:
         title = title_list[0].strip()
@@ -37,6 +39,8 @@ def parse_paste(paste_text):
             author = author_list[0].tail.strip()
         if date_list:
             date = date_list[0]
+    # textarea id="paste_code"
+    content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0].strip()
     paste = Paste (title, author, date, content)
     return paste
 
