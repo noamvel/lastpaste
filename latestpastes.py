@@ -6,7 +6,7 @@ import logging
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
 time = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
 logging.info('\nJob {} started'.format(time))
-filename = '{}_pastes.txt'.format(time)
+filename = 'pb_jobs/{}_pastes.txt'.format(time)
 file = open(filename, "a")
 
 archive_txt = PastebinArchiveClient().get()
