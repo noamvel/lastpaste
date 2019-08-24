@@ -36,6 +36,5 @@ def parse_paste(paste_text):
         if date_list:
             date = date_list[0]
     paste = Paste (title, author, date, content)
-    logging.info(paste)
     return paste
 

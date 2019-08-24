@@ -17,7 +17,7 @@ class PastebinClient:
 
     def get(self):
         session = requests.Session()
-        session.mount(self.url, PastebinClient.adapter)
+        session.mount(self.url, self.adapter)
         try:
             response = session.get(self.url, timeout=PastebinClient.timeout)
             response.raise_for_status()
@@ -41,11 +41,11 @@ class PastebinClient:
 class PastebinArchiveClient(PastebinClient):
 
     def __init__(self):
-        super.__init__(self, PastebinClient.pb_home_url + "/archive")
+        super().__init__('/archive')
 
     def handle_exception(self, exception):
         logging.error("'Archive page currently unavailable.\n {}\nExiting ...'".format(exception))
-        sys(1)
+        sys.exit(1)
 
 
 class PastebinSinglePasteClient(PastebinClient):
