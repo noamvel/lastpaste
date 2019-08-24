@@ -8,15 +8,17 @@ def parse_archive(archive_text):
     # filtering pastes older than 2 minutes
     # filtering 'syntax' hrefs
     archive_doc = html.document_fromstring(archive_text)
-    post_time_filter = "[tr/td/text() = '1 min ago' or tr/td/text() = '2 min ago' or contains(tr/td/text(), 'sec ago')]"
-    pastes_table_list = archive_doc.xpath("//table[@class='maintable']" + post_time_filter)
-    if pastes_table_list:
-        pastes_table = pastes_table_list[0]
-    else:
+    post_time_filter = "[(td/text() = '1 min ago' or td/text() = '2 min ago' or contains(td/text(), 'sec ago'))]"
+    filtered_tr_list = archive_doc.xpath("//table[@class='maintable']/tr{}".format(post_time_filter))
+    if not filtered_tr_list:
         return [];
-    pastes = pastes_table.xpath("tr/td/a[not(contains(@href, 'archive'))]/@href")
-    logging.info('{} new pastes'.format(len(pastes)))
-    return pastes
+    hrefs = []
+    for e in filtered_tr_list:
+        href = e.xpath("td/a[not(contains(@href, 'archive'))]/@href")
+        if href:
+            hrefs.append(href[0])
+    logging.info('{} new pastes'.format(len(hrefs)))
+    return hrefs
 
 
 def parse_paste(paste_text):
