@@ -11,12 +11,13 @@ class PastebinClient:
     pb_home_url = 'https://pastebin.com'
     timeout = 1
     retries = 3
+    backoff_factor = 0.8
     status_forcelist = (500, 502, 504)
     retry_policy = Retry(
         total=retries,
         read=retries,
         connect=retries,
-        backoff_factor=0.8,
+        backoff_factor=backoff_factor,
         status_forcelist=status_forcelist,
     )
 
@@ -45,6 +46,10 @@ class PastebinClient:
     @classmethod
     def set_timeout(cls, timeout):
         cls.timeout = timeout
+
+    @classmethod
+    def set_backoff_factor(cls, backoff_factor):
+        cls.backoff_factor = backoff_factor
 
 
 class PastebinArchiveClient(PastebinClient):
