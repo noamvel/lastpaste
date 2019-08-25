@@ -12,14 +12,17 @@ archive = PastebinArchiveClient().get()
 hrefs = parse_archive(archive)
 
 with open(filename, 'w') as writer:
+    logging.info('Found {} new pastes'.format(len(hrefs)))
     logging.info('Writing to File {}'.format(filename))
+    write_counter = 0
     for href in hrefs:
         paste_txt = PastebinSinglePasteClient(href).get()
         paste = parse_paste(paste_txt)
         if paste:
             writer.write(paste.__repr__())
+            write_counter += 1
             print(paste)
-logging.info('Job Finished Successfully\n')
+logging.info('Job Finished, {} new pastes were written.\n'.format(write_counter))
 
 
 
