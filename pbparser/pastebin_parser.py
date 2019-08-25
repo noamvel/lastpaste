@@ -1,5 +1,4 @@
 import sys
-from lxml.etree import XPathError
 from paste import Paste
 from lxml import html
 import logging
@@ -24,7 +23,6 @@ def parse_archive(archive_text):
             hrefs.append(href)
         except Exception as e:
             logging.error("'Failed to parse 'href'.\n {}\nSkipping ...'".format(e))
-    logging.info('{} new pastes'.format(len(hrefs)))
     return hrefs
 
 
