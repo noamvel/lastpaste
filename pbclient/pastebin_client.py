@@ -32,7 +32,7 @@ class PastebinClient:
             response = session.get(self.url, timeout=PastebinClient.__timeout)
             response.raise_for_status()
         except Exception as e:
-            self.handle_exception(e)
+            return self.handle_exception(e)
         return response.text
 
     @abstractmethod
