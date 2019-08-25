@@ -18,8 +18,6 @@ with open(filename, 'w+') as writer:
         paste = parse_paste(paste_txt)
         print(paste)
         writer.write(paste.__repr__())
-    writer.truncate()
-
 logging.info('Job Finished Successfully\n')
 
 
