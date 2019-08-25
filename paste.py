@@ -8,13 +8,13 @@ class Paste:
     __normalized_title = ('Unknown', 'Untitled', None)
 
     def __init__(self, title, author, date, content):
-        self.author = self.__normalized(author, Paste.__normalized_author);
-        self.title = self.__normalized(title, Paste.__normalized_title);
+        self.author = self.__normalize(author, Paste.__normalized_author);
+        self.title = self.__normalize(title, Paste.__normalized_title);
         self.content = content
         self.date = self.__format_date(date)
 
     @staticmethod
-    def __normalized(val, normalized_val):
+    def __normalize(val, normalized_val):
         if val in normalized_val:
             return ""
         return val
