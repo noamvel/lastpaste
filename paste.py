@@ -24,7 +24,7 @@ class Paste:
         if 'CDT' in date:
             utc_date = date.replace('CDT', '-05:00')
         if 'CST' in date:
-            utc_date = date.replace('CDT', '-06:00')
+            utc_date = date.replace('CST', '-06:00')
         time = arrow.get(utc_date, Paste.__date_formatter)
         return time
 
