@@ -16,7 +16,6 @@ def parse_archive(archive_text):
         logging.error("'Failed to parse 'Archive'.\n {}\nExiting ...'".format(e))
         sys.exit(1)
     hrefs = []
-    logging.info('parsing {} optional pastes'.format(len(hrefs)))
     for e in filtered_tr_list:
         try:
             href = e.xpath("td[1]/a/@href")[0]
