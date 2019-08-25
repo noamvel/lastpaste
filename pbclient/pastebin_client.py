@@ -11,7 +11,7 @@ class PastebinClient:
     __pb_home_url = 'https://pastebin.com'
     __timeout = 2
     __retries = 3
-    __backoff_factor = 1.5
+    __backoff_factor = 5
     __status_forcelist = (500, 502, 504)
     retry_policy = Retry(
         total=__retries,
