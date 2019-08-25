@@ -1,12 +1,13 @@
 import arrow
-from pb_client.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
-from pb_parser.pastebin_parser import parse_archive, parse_paste
+from pbclient.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
+from pbparser.pastebin_parser import parse_archive, parse_paste
 import logging
 
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
 time = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
 logging.info('\nJob {} started'.format(time))
-filename = 'pb_jobs/{}_pastes.txt'.format(time)
+
+filename = 'pbjobs/{}_pastes.txt'.format(time)
 file = open(filename, "a")
 
 archive = PastebinArchiveClient().get()
