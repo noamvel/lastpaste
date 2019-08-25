@@ -41,4 +41,3 @@ def parse_paste(paste_text):
         return None
     paste = Paste(title, author, date, content)
     return paste
-

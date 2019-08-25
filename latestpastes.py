@@ -16,8 +16,9 @@ with open(filename, 'w') as writer:
     for href in hrefs:
         paste_txt = PastebinSinglePasteClient(href).get()
         paste = parse_paste(paste_txt)
-        print(paste)
-        writer.write(paste.__repr__())
+        if paste:
+            writer.write(paste.__repr__())
+            print(paste)
 logging.info('Job Finished Successfully\n')
 
 
