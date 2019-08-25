@@ -12,6 +12,7 @@ archive = PastebinArchiveClient().get()
 hrefs = parse_archive(archive)
 
 with open(filename, 'w') as writer:
+    logging.info('{} new pastes'.format(len(hrefs)))
     logging.info('Writing to File {}'.format(filename))
     write_counter = 0
     for href in hrefs:
