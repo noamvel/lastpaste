@@ -12,7 +12,6 @@ class Paste:
         self.title = self.__normalized(title, Paste.__normalized_title);
         self.content = content
         self.date = self.__format_date(date)
-        # self.date = time.format('YYYY-MM-DD_HH:mm')  should convert to UTC
 
     @staticmethod
     def __normalized(val, normalized_val):
@@ -30,5 +29,4 @@ class Paste:
         return time
 
     def __repr__(self):
-        return "Title: {}\nAuthor: {}\nDate: {}\nContent:\n{}\n\n".format(self.title, self.author, self.date,
-                                                                          self.content)
+        return "Title: {}\nAuthor: {}\nDate: {}\nContent:\n{}\n\n".format(self.title, self.author, self.date, self.content)
