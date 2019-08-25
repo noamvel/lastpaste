@@ -11,7 +11,7 @@ filename = 'pbjobs/{}_pastes.txt'.format(time)
 archive = PastebinArchiveClient().get()
 hrefs = parse_archive(archive)
 
-with open(filename, 'w+') as writer:
+with open(filename, 'w') as writer:
     logging.info('Writing to File {}'.format(filename))
     for href in hrefs:
         paste_txt = PastebinSinglePasteClient(href).get()
