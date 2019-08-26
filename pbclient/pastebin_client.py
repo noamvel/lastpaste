@@ -11,7 +11,7 @@ class PastebinClient:
     __pb_home_url = 'https://pastebin.com'
     __timeout = 2
     __retries = 3
-    __backoff_factor = 5
+    __backoff_factor = 3
     __status_forcelist = (500, 502, 504)
     retry_policy = Retry(
         total=__retries,
@@ -63,6 +63,8 @@ class PastebinArchiveClient(PastebinClient):
 
 
 class PastebinSinglePasteClient(PastebinClient):
+    # 'Single paste' page doesn't change, unlike 'Archive' page -> increase backoff_factor
+    __backoff_factor = 30
 
     def __init__(self, href):
         super().__init__(href)
