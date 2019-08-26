@@ -23,9 +23,11 @@ class Paste:
     def __format_date(date):
         if 'CDT' in date:
             utc_date = date.replace('CDT', '-05:00')
-        if 'CST' in date:
+        elif 'CST' in date:
             utc_date = date.replace('CST', '-06:00')
-        time = arrow.get(utc_date, Paste.__date_formatter)
+        else:
+            return date
+        time = arrow.get(utc_date, Paste.__date_formatter).to('utc')
         return time
 
     def __repr__(self):
