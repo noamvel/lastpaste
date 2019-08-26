@@ -10,7 +10,7 @@ def parse_archive(archive_text):
     # filtering 'syntax' hrefs
     try:
         archive_doc = html.document_fromstring(archive_text)
-        post_time_filter = "[(td/text() = '1 min ago' or td/text() = '2 min ago' or contains(td/text(), 'sec ago'))]"
+        post_time_filter = "[(td/text() = '1 min ago' or contains(td/text(), 'sec ago'))]"
         filtered_tr_list = archive_doc.xpath(".//table[@class='maintable']/tr{}".format(post_time_filter))
     except Exception as e:
         logging.error("'Failed to parse 'Archive'.\n {}\nExiting ...'".format(e))

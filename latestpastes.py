@@ -30,7 +30,7 @@ def latest_pastes():
             paste_txt = PastebinSinglePasteClient(href).get()
             paste = parse_paste(paste_txt)
             if paste:
-                writer.write(paste.__repr__())
+                writer.write(paste)
                 write_counter += 1
                 print(paste)
     logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
