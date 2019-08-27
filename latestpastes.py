@@ -17,7 +17,7 @@ def latest_pastes():
     time_sec = time_now.format('YYYY-MM-DD HH:mm:ss')
     time_min = time_now.format('YYYY-MM-DD_HH:mm')
     logging.info('\nJob {} started'.format(time_sec))
-    filename = 'pbjobs/pastes_{}.txt'.format(time_min)
+    filename = 'jobs/pastes_{}.txt'.format(time_min)
 
     archive = PastebinArchiveClient().get()
     hrefs = parse_archive(archive)
