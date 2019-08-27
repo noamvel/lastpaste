@@ -39,18 +39,6 @@ class PastebinClient:
     def handle_exception(self, exception):
         pass
 
-    @classmethod
-    def set_retries(cls, retries):
-        cls.__retries = retries
-
-    @classmethod
-    def set_timeout(cls, timeout):
-        cls.__timeout = timeout
-
-    @classmethod
-    def set_backoff_factor(cls, backoff_factor):
-        cls.__backoff_factor = backoff_factor
-
 
 class PastebinArchiveClient(PastebinClient):
 

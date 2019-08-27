@@ -33,7 +33,7 @@ class Paste:
         return time
 
     def __repr__(self):
-        return f"{{'Title': '{self.title}', 'Author': '{self.author}', 'Date': '{self.date}', 'Content': '{self.content}'}}"
+        return f"{{'Title': '{self.title}', 'Author': '{self.author}', 'Date': {self.date}, 'Content': '{self.content}'}}"
 
 
 

@@ -8,40 +8,53 @@ import schedule
 from tinydb import TinyDB
 
 
-def run_job(job, db_table):
-    job_thread = threading.Thread(target=job(db_table))
+def run_job(job, db_storage):
+    time_min = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
+    file_storage = f'jobs/pastes_{time_min}.txt'
+    storages = [{'storage': f'{file_storage}', 'writer': file_storage_writer},
+                {'storage': db_storage, 'writer': db_storage_writer}]
+    job_thread = threading.Thread(target=job(storages))
     job_thread.start()
 
 
-def latest_pastes(db_table):
-    time_now = arrow.utcnow()
-    time_sec = time_now.format('YYYY-MM-DD HH:mm:ss')
-    time_min = time_now.format('YYYY-MM-DD_HH:mm')
-    logging.info('\nJob {} started'.format(time_sec))
-    filename = 'jobs/pastes_{}.txt'.format(time_min)
+def latest_pastes_job(storages):
+    pastes = get_latest_pastes()
+    for s in storages:
+        s['writer'](s['storage'], pastes)
+        logging.info(f"{len(pastes)} new pastes written to {s['storage']}\n")
 
+
+def file_storage_writer(storage, pastes):
+    with open(storage, 'w') as writer:
+        for paste in pastes:
+            writer.write(repr(paste))
+            writer.write('\n')
+
+
+def db_storage_writer(storage, pastes):
+    lines = []
+    for p in pastes:
+        lines.append(repr(p))
+    storage.insert_multiple(lines)
+
+
+def get_latest_pastes():
     archive = PastebinArchiveClient().get()
     hrefs = parse_archive(archive)
-    with open(filename, 'w') as writer:
-        logging.info('{} new pastes found'.format(len(hrefs)))
-        logging.info('Writing new pastes to File {}'.format(filename))
-        write_counter = 0
-        for href in hrefs:
-            paste_txt = PastebinSinglePasteClient(href).get()
-            paste = parse_paste(paste_txt)
-            if paste:
-                writer.write(repr(paste))
-                writer.write('\n')
-                db_table.insert(repr(paste))
-                write_counter += 1
-    logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
+    pastes = []
+    for href in hrefs:
+        paste_txt = PastebinSinglePasteClient(href).get()
+        paste = parse_paste(paste_txt)
+        if paste:
+            pastes.append(paste)
+    return pastes
 
 
-# initiation - logger, db, schedule jobs
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
+logging.info("Latest pastes started ...")
 db = TinyDB('db.json', default_table='pastes')
 table = db.table('pastes')
-schedule.every(2).minutes.at(':00').do(run_job, latest_pastes, table)
+schedule.every(1).minutes.at(':00').do(run_job, latest_pastes_job, table)
 
 while True:
     try:

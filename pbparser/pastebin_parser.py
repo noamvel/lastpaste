@@ -26,9 +26,9 @@ def parse_paste(paste_text):
         return None
     try:
         paste_doc = html.document_fromstring(paste_text)
-        title = paste_doc.xpath(".//div[@class='paste_box_line1']/@title")[0].strip()
+        title = paste_doc.xpath(".//div[@class='paste_box_line1']/@title")[0]
         box_line2_element = paste_doc.xpath(".//div[@class='paste_box_line2']")[0]
-        author = box_line2_element.xpath('img')[0].tail.strip()
+        author = box_line2_element.xpath('img')[0].tail
         date = box_line2_element.xpath('span/@title')[0]
         content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0]
     except Exception as e:
