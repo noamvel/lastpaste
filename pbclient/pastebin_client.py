@@ -64,7 +64,7 @@ class PastebinArchiveClient(PastebinClient):
 
 class PastebinSinglePasteClient(PastebinClient):
     # 'Single paste' page doesn't change, unlike 'Archive' page -> increase backoff_factor
-    __backoff_factor = 15
+    __backoff_factor = 20
 
     def __init__(self, href):
         super().__init__(href)

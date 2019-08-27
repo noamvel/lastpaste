@@ -7,20 +7,22 @@ class Paste:
     __normalized_author = ('a guest', 'Guest', 'Unknown', 'Anonymous', None)
     __normalized_title = ('Unknown', 'Untitled', None)
 
-    def __init__(self, title, author, date, content):
+    def __init__(self, title="", author="", date="", content=""):
         self.author = self.__normalize(author, Paste.__normalized_author);
         self.title = self.__normalize(title, Paste.__normalized_title);
-        self.content = content
+        self.content = self.__normalize(content, [None]);
         self.date = self.__format_date(date)
 
     @staticmethod
     def __normalize(val, normalized_val):
         if val in normalized_val:
             return ""
-        return val
+        return val.strip()
 
     @staticmethod
     def __format_date(date):
+        if date is None:
+            return ''
         if 'CDT' in date:
             utc_date = date.replace('CDT', '-05:00')
         elif 'CST' in date:
