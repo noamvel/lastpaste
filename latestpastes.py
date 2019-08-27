@@ -30,14 +30,15 @@ def latest_pastes():
             paste_txt = PastebinSinglePasteClient(href).get()
             paste = parse_paste(paste_txt)
             if paste:
-                writer.write(paste)
+                writer.write(repr(paste))
+                writer.write('\n')
                 write_counter += 1
-                print(paste)
+                print(repr(paste))
     logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
 
 
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
-schedule.every(2).minutes.at(":00").do(run_job, latest_pastes)
+schedule.every(1).minutes.at(":00").do(run_job, latest_pastes)
 while True:
     try:
         schedule.run_pending()

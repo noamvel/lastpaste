@@ -31,5 +31,7 @@ class Paste:
         return time
 
     def __repr__(self):
-        return "{'Title': {}, 'Author': {}, 'Date': {}, 'Content': {}}".format(self.title, self.author, self.date, self.content)
+        return f"{{'Title': '{self.title}', 'Author': '{self.author}', 'Date': '{self.date}', 'Content': '{self.content}'}}"
+
+
 
