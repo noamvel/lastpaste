@@ -39,6 +39,12 @@ class TestPaste(unittest.TestCase):
         self.assertEqual(paste.author, '', "Author should be ''")
         self.assertEqual(paste.content, 'strip', "Content should be 'strip'")
 
+    def test_paste_normalized_strip(self):
+        paste = Paste(title='Untitled', author='a guest    ', content=' strip ')
+        self.assertEqual(paste.title, '', "Title should be ''")
+        self.assertEqual(paste.author, '', "Author should be ''")
+        self.assertEqual(paste.content, 'strip', "Content should be 'strip'")
+
     def test_paste_normalized_str_3(self):
         paste = Paste(title='Unknown', author='Unknown')
         self.assertEqual(paste.title, '', "Title should be ''")

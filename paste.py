@@ -15,9 +15,12 @@ class Paste:
 
     @staticmethod
     def __normalize(val, normalized_val):
-        if val in normalized_val:
+        if val is None:
             return ''
-        return val.strip()
+        striped_val = val.strip()
+        if striped_val in normalized_val:
+            return ''
+        return striped_val
 
     @staticmethod
     def __format_date(date):

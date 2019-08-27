@@ -54,7 +54,7 @@ logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
 logging.info("Latest pastes started ...")
 db = TinyDB('db.json', default_table='pastes')
 table = db.table('pastes')
-schedule.every(1).minutes.at(':00').do(run_job, latest_pastes_job, table)
+schedule.every(2).minutes.at(':00').do(run_job, latest_pastes_job, table)
 
 while True:
     try:
