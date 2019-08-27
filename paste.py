@@ -16,7 +16,7 @@ class Paste:
     @staticmethod
     def __normalize(val, normalized_val):
         if val in normalized_val:
-            return ""
+            return ''
         return val.strip()
 
     @staticmethod
