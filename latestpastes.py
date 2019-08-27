@@ -8,12 +8,12 @@ import schedule
 from tinydb import TinyDB
 
 
-def run_job(job):
-    job_thread = threading.Thread(target=job)
+def run_job(job, db_table):
+    job_thread = threading.Thread(target=job(db_table))
     job_thread.start()
 
 
-def latest_pastes():
+def latest_pastes(db_table):
     time_now = arrow.utcnow()
     time_sec = time_now.format('YYYY-MM-DD HH:mm:ss')
     time_min = time_now.format('YYYY-MM-DD_HH:mm')
@@ -32,14 +32,17 @@ def latest_pastes():
             if paste:
                 writer.write(repr(paste))
                 writer.write('\n')
+                db_table.insert(repr(paste))
                 write_counter += 1
-                print(repr(paste))
     logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
 
 
+# initiation - logger, db, schedule jobs
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
-db = TinyDB('db.json')
-schedule.every(2).minutes.at(':00').do(run_job, latest_pastes)
+db = TinyDB('db.json', default_table='pastes')
+table = db.table('pastes')
+schedule.every(2).minutes.at(':00').do(run_job, latest_pastes, table)
+
 while True:
     try:
         schedule.run_pending()
