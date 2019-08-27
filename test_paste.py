@@ -19,7 +19,7 @@ class TestPaste(unittest.TestCase):
         paste = Paste(date='Tuesday 27th of August 2019 08:09:20 AM CST')
         self.assertEqual(paste.date.format(), '2019-08-27 14:09:20+00:00', "Date should be '2019-08-27 14:09:20+00:00'")
 
-    def test_paste_not_normalized_none(self):
+    def test_paste_normalized_none(self):
         paste = Paste(None, None, None, None)
         self.assertEqual(paste.title, '', "Title should be ''")
         self.assertEqual(paste.author, '', "Author should be ''")
