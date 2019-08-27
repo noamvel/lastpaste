@@ -256,7 +256,7 @@
 	</div>
 	<div class="content_title no_border">RAW Paste Data<div id="bsa-footer"></div></div>
 	<div class="textarea_border" style="margin-bottom:0">
-		<textarea id="paste_code" class="paste_code" name="paste_code" onkeydown="return catchTab(this,event)"> Test Text </textarea>
+		<textarea id="paste_code" class="paste_code" name="paste_code" onkeydown="return catchTab(this,event)">Test Text</textarea>
 	</div><div id="abrpm3"></div>
 			<div style="padding: 10px 0 0 0;">
 				<script type="text/javascript"><!--

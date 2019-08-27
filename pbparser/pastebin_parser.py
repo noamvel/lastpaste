@@ -30,7 +30,7 @@ def parse_paste(paste_text):
         box_line2_element = paste_doc.xpath(".//div[@class='paste_box_line2']")[0]
         author = box_line2_element.xpath('img')[0].tail.strip()
         date = box_line2_element.xpath('span/@title')[0]
-        content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0].strip()
+        content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0]
     except Exception as e:
         logging.error("'Failed to parse 'paste'.\n {}\nSkipping ...'".format(e))
         return None
