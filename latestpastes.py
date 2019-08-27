@@ -5,7 +5,6 @@ import logging
 import arrow
 import time
 import schedule
-from tinydb import TinyDB, Query
 
 
 def run_job(job):
@@ -39,7 +38,6 @@ def latest_pastes():
 
 
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
-db = TinyDB('pastes.json')
 schedule.every(2).minutes.at(":00").do(run_job, latest_pastes)
 while True:
     try:
