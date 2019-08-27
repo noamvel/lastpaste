@@ -12,7 +12,7 @@ class PastebinClient:
     __timeout = 2
     __retries = 3
     __backoff_factor = 5
-    __status_forcelist = (500, 502, 504)
+    __status_forcelist = (500, 502, 503, 504)
     retry_policy = Retry(
         total=__retries,
         read=__retries,
