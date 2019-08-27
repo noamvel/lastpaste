@@ -32,7 +32,6 @@ def latest_pastes():
                 writer.write(repr(paste))
                 writer.write('\n')
                 write_counter += 1
-                db.insert(repr(paste))
                 print(repr(paste))
     logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
 
