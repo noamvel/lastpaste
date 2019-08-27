@@ -7,7 +7,7 @@ class Paste:
     __normalized_author = ('a guest', 'Guest', 'Unknown', 'Anonymous', None)
     __normalized_title = ('Unknown', 'Untitled', None)
 
-    def __init__(self, title="", author="", date="", content=""):
+    def __init__(self, title='', author='', date='', content=''):
         self.author = self.__normalize(author, Paste.__normalized_author);
         self.title = self.__normalize(title, Paste.__normalized_title);
         self.content = self.__normalize(content, [None]);

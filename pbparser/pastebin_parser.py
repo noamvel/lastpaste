@@ -13,7 +13,7 @@ def parse_archive(archive_text):
     hrefs = []
     for e in filtered_tr_list:
         try:
-            href = e.xpath("td[1]/a/@href")[0]
+            href = e.xpath('td[1]/a/@href')[0]
             hrefs.append(href)
         except Exception as e:
             logging.error("'Failed to parse 'href'.\n {}\nSkipping ...'".format(e))
@@ -28,8 +28,8 @@ def parse_paste(paste_text):
         paste_doc = html.document_fromstring(paste_text)
         title = paste_doc.xpath(".//div[@class='paste_box_line1']/@title")[0].strip()
         box_line2_element = paste_doc.xpath(".//div[@class='paste_box_line2']")[0]
-        author = box_line2_element.xpath("img")[0].tail.strip()
-        date = box_line2_element.xpath("span/@title")[0]
+        author = box_line2_element.xpath('img')[0].tail.strip()
+        date = box_line2_element.xpath('span/@title')[0]
         content = paste_doc.xpath("//textarea[@id='paste_code']/text()")[0].strip()
     except Exception as e:
         logging.error("'Failed to parse 'paste'.\n {}\nSkipping ...'".format(e))
