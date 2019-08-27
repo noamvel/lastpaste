@@ -1,11 +1,11 @@
 import threading
-
 from pbclient.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
 from pbparser.pastebin_parser import parse_archive, parse_paste
 import logging
 import arrow
 import time
 import schedule
+from tinydb import TinyDB, Query
 
 
 def run_job(job):
@@ -33,12 +33,14 @@ def latest_pastes():
                 writer.write(repr(paste))
                 writer.write('\n')
                 write_counter += 1
+                db.insert(repr(paste))
                 print(repr(paste))
     logging.info('Job Finished, {} new pastes written.\n'.format(write_counter))
 
 
 logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
-schedule.every(1).minutes.at(":00").do(run_job, latest_pastes)
+db = TinyDB('pastes.json')
+schedule.every(2).minutes.at(":00").do(run_job, latest_pastes)
 while True:
     try:
         schedule.run_pending()

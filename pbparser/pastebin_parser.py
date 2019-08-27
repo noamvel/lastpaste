@@ -1,4 +1,3 @@
-import sys
 from paste import Paste
 from lxml import html
 import logging
@@ -8,13 +7,9 @@ def parse_archive(archive_text):
     # parse pastes hrefs from 'Pastes Archive'
     # filtering pastes older than 2 minutes
     # filtering 'syntax' hrefs
-    try:
-        archive_doc = html.document_fromstring(archive_text)
-        post_time_filter = "[(td/text() = '1 min ago' or contains(td/text(), 'sec ago'))]"
-        filtered_tr_list = archive_doc.xpath(".//table[@class='maintable']/tr{}".format(post_time_filter))
-    except Exception as e:
-        logging.error("'Failed to parse 'Archive'.\n {}\nExiting ...'".format(e))
-        sys.exit(1)
+    archive_doc = html.document_fromstring(archive_text)
+    post_time_filter = "[(td/text() = '1 min ago' or contains(td/text(), 'sec ago'))]"
+    filtered_tr_list = archive_doc.xpath(".//table[@class='maintable']/tr{}".format(post_time_filter))
     hrefs = []
     for e in filtered_tr_list:
         try:
