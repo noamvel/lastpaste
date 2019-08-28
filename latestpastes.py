@@ -49,7 +49,7 @@ def get_latest_pastes():
     return pastes
 
 
-logging.basicConfig(filename='latestpastes.log', level=logging.INFO)
+logging.basicConfig(filename='latestpastes.log', format='%(asctime)s %(levelname)-5s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S')
 logging.info("Latest pastes started ...")
 db = TinyDB('db.json', default_table='pastes')
 table = db.table('pastes')
