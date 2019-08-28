@@ -16,7 +16,7 @@ pip docker yoyo
 
 ## As python project
 
-* It is best to have an isolated python environments [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
+* It is best to have an isolated python environment [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
 
 ```
 python3 -m venv env
