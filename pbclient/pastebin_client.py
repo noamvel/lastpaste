@@ -46,7 +46,7 @@ class PastebinArchiveClient(PastebinClient):
         super().__init__('/archive')
 
     def handle_exception(self, e):
-        logging.error("'Archive page currently unavailable.\n {}\nExiting job ...'".format(e))
+        logging.error(f'Archive page currently unavailable.\n {e}\nExiting job ...')
         sys.exit(1)
 
 
@@ -58,7 +58,7 @@ class PastebinSinglePasteClient(PastebinClient):
         super().__init__(href)
 
     def handle_exception(self, e):
-        logging.error("'Paste page currently unavailable.\n {}\nSkipping ...'".format(e))
+        logging.error(f'Paste page currently unavailable.\n {e}\nSkipping ...')
         return None
 
 

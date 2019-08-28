@@ -22,19 +22,20 @@ def latest_pastes_job(storages):
     for s in storages:
         s['writer'](s['storage'], pastes)
         logging.info(f"{len(pastes)} new pastes written to {s['storage']}\n")
+    return
 
 
 def file_storage_writer(storage, pastes):
     with open(storage, 'w') as writer:
         for paste in pastes:
-            writer.write(repr(paste))
+            writer.write(str(paste))
             writer.write('\n')
 
 
 def db_storage_writer(storage, pastes):
     lines = []
     for p in pastes:
-        lines.append(repr(p))
+        lines.append(p.as_dict())
     storage.insert_multiple(lines)
 
 
