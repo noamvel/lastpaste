@@ -24,7 +24,6 @@ pip install -r requirements.txt
 ### As Docker image
 
 * Bla lal lala:
-
 ```
 pip docker yoyo
 ```
