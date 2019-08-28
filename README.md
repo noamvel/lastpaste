@@ -4,7 +4,11 @@ Latests Pastes is simple python3 web crawler that crawls the site: https://paste
 
 ## Installation
 
-* Make sure you have python3 installed. [python.org/downloads](https://www.python.org/downloads/)
+* Make sure you have python3 installed.
+```
+python3 --version
+```
+[python.org/downloads](https://www.python.org/downloads/)
 * Clone this project to your desired directory.
 
 ### As python project
