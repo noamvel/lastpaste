@@ -1,6 +1,6 @@
 import threading
-from pbclient.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
-from pbparser.pastebin_parser import parse_archive, parse_paste
+from pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
+from pastebin_parser import parse_archive, parse_paste
 import logging
 import arrow
 import time

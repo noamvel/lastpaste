@@ -1,5 +1,5 @@
 import unittest
-from pbparser.pastebin_parser import parse_archive, parse_paste
+from pastebin_parser import parse_archive, parse_paste
 
 
 class TestParser(unittest.TestCase):
