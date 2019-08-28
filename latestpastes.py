@@ -1,11 +1,12 @@
 import threading
-from pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
-from pastebin_parser import parse_archive, parse_paste
 import logging
 import arrow
 import time
 import schedule
 from tinydb import TinyDB
+
+from pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
+from pastebin_parser import parse_archive, parse_paste
 
 
 def run_job(job, db_storage):
@@ -62,4 +63,4 @@ while True:
         schedule.run_pending()
         time.sleep(1)
     except Exception as e:
-        logging.error("Exiting 'latestpastes'.\n{} ".format(e))
+        logging.error("Exiting 'latestpaste'.\n{} ".format(e))
