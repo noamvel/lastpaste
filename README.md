@@ -8,6 +8,7 @@ Latests Pastes is simple python3 web crawler that crawls the site: https://paste
 * Clone this project to your desired directory.
 
 ### As python project
+
 * It is best to have an isolated python environments [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
 
 ```
@@ -20,31 +21,34 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
+### As Docker image
+
+* Bla lal lala:
+
+```
+pip docker yoyo
+```
+
 ## Usage
 
 * execute
-
 ```
 python3 latestpastes.py
 ```
 * view log
-
 ```
-tail -f latestpastes.log
+latestpastes/latestpastes.log
 ```
 * view storage
-
-- -   File Storage - latestpastes/jobs/
-
-- -   TinyDB storage - latestpastes/db.json
-
+```
+File Storage - latestpastes/jobs/
+TinyDB storage - latestpastes/db.json
+```
 * run project tests
-
 ```
 python3 -m unittest
 ```
 
-### As Docker image
 
 
 
