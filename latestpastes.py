@@ -21,7 +21,7 @@ def latest_pastes_job(storages):
     pastes = get_latest_pastes()
     for s in storages:
         s['writer'](s['storage'], pastes)
-        logging.info(f"{len(pastes)} new pastes written to {s['storage']}\n")
+        logging.info(f"{len(pastes)} new pastes written to {s['storage']}")
     return
 
 
@@ -33,9 +33,7 @@ def file_storage_writer(storage, pastes):
 
 
 def db_storage_writer(storage, pastes):
-    lines = []
-    for p in pastes:
-        lines.append(p.as_dict())
+    lines = [p.as_dict() for p in pastes]
     storage.insert_multiple(lines)
 
 
