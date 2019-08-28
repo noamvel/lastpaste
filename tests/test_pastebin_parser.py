@@ -1,26 +1,29 @@
+import os
 import unittest
 from pastebin_parser import parse_archive, parse_paste
 
 
 class TestParser(unittest.TestCase):
 
+    _path = os.path.dirname(os.path.abspath(__file__)) + "/txt/"
+
     def test_parse_archive_success(self):
-        with open('tests/txt/test_archive.txt', 'r') as reader:
+        with open(f'{TestParser._path}test_archive.txt', 'r') as reader:
             text = reader.read()
         self.assertEqual(len(parse_archive(text)), 21, "21 hrefs expected")
 
     def test_parse_archive_missing_href(self):
-        with open('tests/txt/test_archive_missing_href.txt', 'r') as reader:
+        with open(f'{TestParser._path}test_archive_missing_href.txt', 'r') as reader:
             text = reader.read()
         self.assertEqual(len(parse_archive(text)), 20, "20 hrefs expected")
 
     def test_parse_archive_missing_table(self):
-        with open('tests/txt/test_archive_missing_table.txt', 'r') as reader:
+        with open(f'{TestParser._path}test_archive_missing_table.txt', 'r') as reader:
             text = reader.read()
         self.assertEqual(len(parse_archive(text)), 0, "0 hrefs expected")
 
     def test_parse_paste_success(self):
-        with open('tests/txt/test_single_paste.txt', 'r') as reader:
+        with open(f'{TestParser._path}test_single_paste.txt', 'r') as reader:
             text = reader.read()
         self.assertEqual(parse_paste(text).title, 'Homework2_vsokolov', "Title should be 'Homework2_vsokolov'")
         self.assertEqual(parse_paste(text).author, '', "Author should be ''")
@@ -28,7 +31,7 @@ class TestParser(unittest.TestCase):
         self.assertEqual(parse_paste(text).content, 'Test Text', "Content should be 'Test Text'")
 
     def test_parse_paste_None(self):
-        with open('tests/txt/test_single_paste.txt', 'r') as reader:
+        with open(f'{TestParser._path}test_single_paste.txt', 'r') as reader:
             text = reader.read()
         self.assertEqual(parse_paste(None), None, "Paste should be 'None'")
 
