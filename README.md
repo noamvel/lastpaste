@@ -34,9 +34,9 @@ tail -f latestpastes.log
 ```
 3. view storage
 
-File Storage at latestpastes/jobs/
+ ##### File Storage at latestpastes/jobs/
 
-TinyDB storage at latestpastes/db.json
+ ##### TinyDB storage at latestpastes/db.json
 
 4. run project tests
 
