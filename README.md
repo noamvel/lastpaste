@@ -7,6 +7,13 @@ Latests Pastes is simple python3 web crawler that crawls the [pastebin.com](http
 * Make sure you have python3 installed. (python3 --version) otherwise  -> [python.org/downloads](https://www.python.org/downloads/)
 * Clone this project to your desired directory.
 
+## As Docker image
+
+* Make sure you have docker installed. (docker --version) otherwise  -> [docker](https://docs.docker.com/install/)
+```
+pip docker yoyo
+```
+
 ## As python project
 
 * It is best to have an isolated python environments [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
@@ -21,14 +28,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-## As Docker image
-
-* Make sure you have docker installed. (docker -) otherwise  -> [python.org/downloads] [docker]https://docs.docker.com/install/
-```
-pip docker yoyo
-```
-
-## Usage
+# Usage
 
 * execute
 ```
