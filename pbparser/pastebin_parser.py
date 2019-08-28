@@ -31,8 +31,8 @@ def parse_paste(paste_text):
     doc = html.document_fromstring(paste_text)
     title = _get_element(doc, ".//div[@class='paste_box_line1']/@title")
     content = _get_element(doc, "//textarea[@id='paste_code']/text()")
-    box_line2 = _get_element(doc, ".//div[@class='paste_box_line2']")
-    author = _get_element(box_line2, 'img').tail
-    date = _get_element(box_line2, 'span/@title')
+    box_2 = _get_element(doc, ".//div[@class='paste_box_line2']")
+    author = _get_element(box_2, 'img').tail
+    date = _get_element(box_2, 'span/@title')
     paste = Paste(title, author, date, content)
     return paste
