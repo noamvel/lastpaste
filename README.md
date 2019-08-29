@@ -6,29 +6,20 @@ Latests Pastes is simple python3 web crawler that crawls the [pastebin.com](http
 
 * Make sure you have python3 installed. (python3 --version) otherwise  -> [python.org/downloads](https://www.python.org/downloads/)
 * Clone this project to your desired directory.
-
-## As Docker python image
-
-* Make sure you have docker installed. (docker --version) otherwise  -> [docker](https://docs.docker.com/install/)
-```
-pip docker yoyo
-```
-
-## As python project
-
-* It is best to have an isolated python environment [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
-
+* It is best to have an isolated python environment:
 ```
 python3 -m venv env
 source env/bin/activate
 ```
+more info can be found -> [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
+
 * Install project required modules:
 
 ```
 pip install -r requirements.txt
 ```
 
-# Usage
+## Usage
 
 * execute
 ```
