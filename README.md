@@ -61,9 +61,17 @@ docker build -t latestpastes .
 
 * execute
 ```
-docker run --name mylp latestpastes
+docker run --name you_decide -v $(pwd):/lpapp latestpastes
 ```
-
+* log
+```
+latestpastes/latestpastes.log
+```
+* storage
+```
+Files - latestpastes/jobs/
+TinyDB - latestpastes/db.json
+```
 
 
 
