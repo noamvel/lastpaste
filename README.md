@@ -11,7 +11,9 @@ Latests Pastes is simple python3 web crawler that crawls the [pastebin.com](http
 python3 -m venv env
 source env/bin/activate
 ```
-more info can be found -> [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). From project directory (latestpastes) run:
+  [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). 
+  
+  From project directory (latestpastes) run:
 
 * Install project required modules:
 
