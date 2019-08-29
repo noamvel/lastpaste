@@ -6,13 +6,12 @@ Latests Pastes is simple python3 web crawler that crawls the [pastebin.com](http
 
 * Make sure you have python3 installed. (python3 --version) otherwise  -> [python.org/downloads](https://www.python.org/downloads/)
 * Clone this project to your desired directory.
-* It is best to have an isolated python environment:
+* It is best to have an isolated python environment  [venv](https://realpython.com/python-virtual-environments-a-primer/) 
+
 ```
 python3 -m venv env
 source env/bin/activate
 ```
-  [python-virtual-environments](https://realpython.com/python-virtual-environments-a-primer/). 
-  
   From project directory (latestpastes) run:
 
 * Install project required modules:
