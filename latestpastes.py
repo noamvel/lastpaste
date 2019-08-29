@@ -1,11 +1,12 @@
+import sys
 import threading
 import logging
 import arrow
 import time
 import schedule
 from tinydb import TinyDB
-from src.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
-from src.pastebin_parser import parse_archive, parse_paste
+from pbsrc.pastebin_client import PastebinArchiveClient, PastebinSinglePasteClient
+from pbsrc.pastebin_parser import parse_archive, parse_paste
 
 
 def run_job(job, db_storage):

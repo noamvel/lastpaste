@@ -1,6 +1,6 @@
 import os
 import unittest
-from src.pastebin_parser import parse_archive, parse_paste
+from pbsrc.pastebin_parser import parse_archive, parse_paste
 
 
 class TestParser(unittest.TestCase):
