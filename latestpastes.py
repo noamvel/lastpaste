@@ -1,4 +1,3 @@
-import sys
 import threading
 import logging
 import arrow
@@ -12,15 +11,15 @@ from src.pastebin_parser import parse_archive, parse_paste
 def run_job(job, db_storage):
     time_min = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
     file_storage = f'jobs/pastes_{time_min}.txt'
-    storages = [{'storage': f'{file_storage}', 'writer': file_storage_writer},
+    storage = [{'storage': f'{file_storage}', 'writer': file_storage_writer},
                 {'storage': db_storage, 'writer': db_storage_writer}]
-    job_thread = threading.Thread(target=job(storages))
+    job_thread = threading.Thread(target=job(storage))
     job_thread.start()
 
 
-def latest_pastes_job(storages):
+def latest_pastes_job(storage):
     pastes = get_latest_pastes()
-    for s in storages:
+    for s in storage:
         s['writer'](s['storage'], pastes)
         logging.info(f"{len(pastes)} new pastes written to {s['storage']}")
     return
@@ -63,4 +62,4 @@ while True:
         schedule.run_pending()
         time.sleep(1)
     except Exception as e:
-        logging.error("Exiting 'latestpaste'.\n{} ".format(e))
+        logging.error(f'Exiting latestpaste.\n{e}')
