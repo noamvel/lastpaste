@@ -13,7 +13,7 @@ otherwise -> [python.org/downloads](https://www.python.org/downloads/)
 * Clone this project to your desired directory.
 ## As python environment
 
-* It is best to have an isolated python environment. from project home directory 'latestpastes' run:
+* It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
 ```
 python3 -m venv env
 source env/bin/activate
