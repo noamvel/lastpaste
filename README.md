@@ -26,16 +26,16 @@ pip install -r requirements.txt
 ```
 python3 latestpastes.py
 ```
-* view log
+* log
 ```
 latestpastes/latestpastes.log
 ```
-* view storage
+* storage
 ```
 File Storage - latestpastes/jobs/
 TinyDB storage - latestpastes/db.json
 ```
-* run project tests
+* run unit tests
 ```
 python3 -m unittest
 ```
