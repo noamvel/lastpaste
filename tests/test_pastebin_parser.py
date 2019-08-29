@@ -33,8 +33,6 @@ class TestParser(unittest.TestCase):
         self.assertEqual(parse_paste(text).content, 'Test Text', "Content should be 'Test Text'")
 
     def test_parse_paste_None(self):
-        with open(f'{TestParser._path}test_single_paste.txt', 'r') as reader:
-            text = reader.read()
         self.assertEqual(parse_paste(None), None, "Paste should be 'None'")
 
 
