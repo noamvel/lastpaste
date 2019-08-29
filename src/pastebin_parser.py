@@ -1,4 +1,4 @@
-from pbsrc.paste import Paste
+from src.paste import Paste
 from lxml import html
 import logging
 

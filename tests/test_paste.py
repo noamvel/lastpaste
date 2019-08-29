@@ -1,5 +1,5 @@
 import unittest
-from pbsrc.paste import Paste
+from src.paste import Paste
 
 
 class TestPaste(unittest.TestCase):
