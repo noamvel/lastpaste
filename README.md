@@ -31,12 +31,12 @@ python3 latestpastes.py
 ```
 * log
 ```
-latestpastes/latestpastes.log
+latestpastes.log
 ```
 * storage
 ```
-Files - latestpastes/jobs/
-TinyDB - latestpastes/db.json
+Files - jobs/
+TinyDB - db.json
 ```
 * run unit tests
 ```
@@ -65,12 +65,12 @@ docker run --name you_decide -v $(pwd):/lpapp latestpastes
 ```
 * log
 ```
-latestpastes/latestpastes.log
+latestpastes.log
 ```
 * storage
 ```
-Files - latestpastes/jobs/
-TinyDB - latestpastes/db.json
+Files - jobs/
+TinyDB - db.json
 ```
 
 
