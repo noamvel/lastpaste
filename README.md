@@ -61,7 +61,7 @@ docker build -t latestpastes .
 
 * execute
 ```
-docker run latestpastes
+docker run --name mylp latestpastes
 ```
 
 
