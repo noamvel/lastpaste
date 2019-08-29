@@ -44,7 +44,7 @@ python3 -m unittest
 
 * Make sure you have docker installed and running. (docker --version) otherwise  -> [docker](https://docs.docker.com/install/)
 
-* build docker image:
+* build docker image, from project directory (latestpastes) run:
 ```
 docker build -t latestpastes .
 ```
