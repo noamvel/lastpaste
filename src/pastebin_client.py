@@ -11,7 +11,7 @@ class PastebinClient:
     __pb_home_url = 'https://pastebin.com'
     __timeout = 2
     __retries = 3
-    __backoff_factor = 5
+    __backoff_factor = 2
     __status_forcelist = (500, 502, 503, 504)
     retry_policy = Retry(
         total=__retries,
@@ -46,8 +46,8 @@ class PastebinArchiveClient(PastebinClient):
         super().__init__('/archive')
 
     def handle_exception(self, e):
-        logging.error(f'Archive page currently unavailable.\n {e}\nExiting job ...')
-        sys.exit(1)
+        logging.error(f'Archive page currently unavailable.')
+        raise
 
 
 class PastebinSinglePasteClient(PastebinClient):

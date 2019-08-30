@@ -18,10 +18,13 @@ def run_job(job, db_storage):
 
 
 def latest_pastes_job(storage):
-    pastes = get_latest_pastes()
-    for s in storage:
-        s['writer'](s['storage'], pastes)
-        logging.info(f"{len(pastes)} new pastes written to {s['storage']}")
+    try:
+        pastes = get_latest_pastes()
+        for s in storage:
+            s['writer'](s['storage'], pastes)
+            logging.info(f"{len(pastes)} new pastes written to {s['storage']}")
+    except Exception as e:
+        logging.error(f'Exiting current job ...\n{e}')
     return
 
 
@@ -62,4 +65,4 @@ while True:
         schedule.run_pending()
         time.sleep(1)
     except Exception as e:
-        logging.error(f'Exiting latestpaste.\n{e}')
+        logging.error(f'Exiting latestpaste.{e}')
