@@ -58,7 +58,7 @@ class PastebinSinglePasteClient(PastebinClient):
         super().__init__(href)
 
     def handle_exception(self, e):
-        logging.error(f'Paste page currently unavailable.\n {e}\nSkipping ...')
+        logging.error(f'Paste page currently unavailable.\n{e}')
         return None
 
 
