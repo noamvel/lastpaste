@@ -11,7 +11,7 @@ python3 --version
 otherwise -> [python.org/downloads](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory.
-## As python environment
+### As python environment
 
 * It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
 ```
@@ -23,46 +23,29 @@ you can refer -> [venv](https://realpython.com/python-virtual-environments-a-pri
 ```
 pip install -r requirements.txt
 ```
-## Usage
-
 * execute
 ```
 python3 latestpastes.py
 ```
-* log
-```
-latestpastes.log
-```
-* storage
-```
-Files - jobs/
-TinyDB - db.json
-```
-* run unit tests
-```
-python3 -m unittest
-```
-
-## As python docker image
+### As python docker image
 
 * Make sure you have docker installed and running:
 ```
 docker --version
-docker run hello-world
+docker ps
 ```
 otherwise  -> [docker](https://docs.docker.com/install/)
-
 
 * build docker image, from project home directory run:
 ```
 docker build -t latestpastes .
 ```
-## Usage
-
 * execute
 ```
 docker run --name you_decide -v $(pwd):/lpapp latestpastes
 ```
+## Usage
+
 * log
 ```
 latestpastes.log
