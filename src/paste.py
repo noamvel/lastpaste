@@ -1,4 +1,7 @@
 import arrow
+import warnings
+from arrow.factory import ArrowParseWarning
+warnings.simplefilter("ignore", ArrowParseWarning)
 
 
 class Paste:
