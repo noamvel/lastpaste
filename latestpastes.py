@@ -9,7 +9,7 @@ from src.pastebin_parser import parse_archive, parse_paste
 
 
 def run_job(job, db_storage):
-    time_min = arrow.utcnow().format('YYYY-MM-DD_HH:mm')
+    time_min = arrow.utcnow().format('YYYY-MM-DD_HH-mm')
     file_storage = f'jobs/pastes_{time_min}.txt'
     storage = [{'storage': f'{file_storage}', 'writer': file_storage_writer},
                 {'storage': db_storage, 'writer': db_storage_writer}]
