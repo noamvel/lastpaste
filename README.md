@@ -11,7 +11,7 @@ python3 --version
 otherwise -> [python.org/downloads](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory.
-[install git](https://git-scm.com/download) if not installed
+[install git](https://git-scm.com/download) if not installed yet.
 ### As python environment
 
 * It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
