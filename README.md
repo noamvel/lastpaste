@@ -6,7 +6,7 @@ Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](ht
 ```
 python --version or python3 --version
 ```
-if needed -> alias python to python3, at ~.bashrc
+if needed -> alias python to python3, at ~.bashrc:
 ```
 alias python='python3'
 ```
