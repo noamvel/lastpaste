@@ -2,12 +2,11 @@
 Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](https://pastebin.com/) site and stores the most recent "pastes" into storage. 
 
 ## Installation 
-* Make sure you have python3 installed with latest version 3.7.4:
+* Make sure you have python3 installed with latest version 3.7.4 and pointed by 'python' command:
 ```
 python --version
 ```
-if you have another python version instaleld -> point python to python3 (at ~.bashrc: alias python='python3')
-if python3 is not installed -> [install python](https://www.python.org/downloads/)
+python3 is not installed -> [install python](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory.
 git is not installed -> [install git](https://git-scm.com/download)
