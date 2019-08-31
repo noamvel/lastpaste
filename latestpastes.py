@@ -29,7 +29,7 @@ def latest_pastes_job(storage):
 
 
 def file_storage_writer(storage, pastes):
-    with open(storage, 'w') as writer:
+    with open(storage, 'w', encoding='utf-8') as writer:
         for paste in pastes:
             writer.write(str(paste))
             writer.write('\n')
