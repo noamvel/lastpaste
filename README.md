@@ -20,7 +20,7 @@ git is not installed -> [install git](https://git-scm.com/download)
 * It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
 ```
 python -m venv env
-source env/bin/activate  (for Windows -> run activate from env/Scripts/)
+source env/bin/activate
 ```
 you can refer -> [venv](https://realpython.com/python-virtual-environments-a-primer/)
 * Install project required modules:
