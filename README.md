@@ -10,10 +10,10 @@ if needed -> alias python to python3, at ~.bashrc:
 ```
 alias python='python3'
 ```
-** python3 not installed -> [install python](https://www.python.org/downloads/)
+python3 not installed -> [install python](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory.
-** git not installed -> [install git](https://git-scm.com/download)
+git not installed -> [install git](https://git-scm.com/download)
 
 ### As python environment
 
