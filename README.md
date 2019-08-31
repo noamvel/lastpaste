@@ -6,16 +6,20 @@ Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](ht
 ```
 python --version or python3 --version
 ```
-otherwise -> [python.org/downloads](https://www.python.org/downloads/)
+if needed -> alias python to python3, at ~.bashrc
+```
+alias python='python3'
+```
+** python3 not installed -> [install python](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory.
-[install git](https://git-scm.com/download) if not installed yet.
+** git not installed -> [install git](https://git-scm.com/download)
 
 ### As python environment
 
 * It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
 ```
-python3 -m venv env
+python -m venv env
 source env/bin/activate  (for Windows -> run activate from env/Scripts/)
 ```
 you can refer -> [venv](https://realpython.com/python-virtual-environments-a-primer/)
@@ -25,7 +29,7 @@ pip install -r requirements.txt
 ```
 * execute
 ```
-python3 latestpastes.py
+python latestpastes.py
 ```
 
 ### As python docker image
