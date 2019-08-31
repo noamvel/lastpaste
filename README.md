@@ -6,7 +6,7 @@ Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](ht
 
 * Make sure you have python3 installed with latest version 3.7.4:
 ```
-python --version or python3 --version (if the first resulted with 3.x.x use 'python' instead 'python3' while following this documanet)
+python --version or python3 --version (if the first resulted with 3.x.x use 'python' instead 'python3' while following this document)
 ```
 otherwise -> [python.org/downloads](https://www.python.org/downloads/)
 
