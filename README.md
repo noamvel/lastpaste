@@ -17,7 +17,7 @@ otherwise -> [python.org/downloads](https://www.python.org/downloads/)
 * It is best to have an isolated python virtual environment. from project home directory 'latestpastes' run:
 ```
 python3 -m venv env
-source env/bin/activate
+source env/bin/activate  (for Windows -> run activate.bat from env/Scripts/)
 ```
 you can refer -> [venv](https://realpython.com/python-virtual-environments-a-primer/)
 * Install project required modules:
