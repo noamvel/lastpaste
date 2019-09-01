@@ -7,7 +7,11 @@ Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](ht
 python --version
 ```
 python3 is not installed -> [install python](https://www.python.org/downloads/)
-* Clone this project to your desired directory.  
+
+* Clone this project to your desired directory.
+```
+git clone https://github.com/noamvel/latestpastes.git
+```
 git is not installed -> [install git](https://git-scm.com/download)
 
 ## Installation
