@@ -16,9 +16,8 @@ git is not installed -> [install git](https://git-scm.com/download)
 
 ## Installation
 ### As python environment 
-* It is best to have an isolated python virtual environment.  
-for more info you can refer -> [venv](https://realpython.com/python-virtual-environments-a-primer/).  
-from project home directory 'latestpastes' run:
+* It is best to have an isolated python virtual environment.   
+From project home directory 'latestpastes' run:
 ```
 python -m venv env
 source env/bin/activate
