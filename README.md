@@ -1,5 +1,5 @@
-# Latests Pastes
-Latests Pastes is a simple python3 web crawler that crawls the [pastebin.com](https://pastebin.com/) site and stores the most recent "pastes" into storage. 
+# Latest Pastes
+Latest Pastes is a simple python3 web crawler that crawls the [pastebin.com](https://pastebin.com/) site and stores the most recent "pastes" into storage. 
 
 ## Requirements 
 * python3 with latest version 3.7.4 installed.
