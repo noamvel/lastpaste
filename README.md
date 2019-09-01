@@ -38,7 +38,7 @@ python latestpastes.py
 docker --version
 docker ps
 ```
-docker is not installed  -> [docker](https://docs.docker.com/install/)
+docker is not installed  -> [install docker](https://docs.docker.com/install/)
 
 * build docker image, from project home directory run:
 ```
