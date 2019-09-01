@@ -6,13 +6,13 @@ Latest Pastes is a simple python3 web crawler that crawls the [pastebin.com](htt
 ```
 python --version
 ```
-python3 is not installed -> [install python](https://www.python.org/downloads/)
+If python3 is not installed -> [install python](https://www.python.org/downloads/)
 
 * Clone this project to your desired directory:
 ```
 git clone https://github.com/noamvel/latestpastes.git
 ```
-git is not installed -> [install git](https://git-scm.com/download)
+If git is not installed -> [install git](https://git-scm.com/download)
 
 ## Installation
 ### As python environment 
@@ -37,7 +37,7 @@ python latestpastes.py
 docker --version
 docker ps
 ```
-docker is not installed  -> [install docker](https://docs.docker.com/install/)
+If docker is not installed  -> [install docker](https://docs.docker.com/install/)
 
 * build docker image, from project home directory run:
 ```
