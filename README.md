@@ -8,7 +8,7 @@ python --version
 ```
 python3 is not installed -> [install python](https://www.python.org/downloads/)
 
-* Clone this project to your desired directory.
+* Clone this project to your desired directory:
 ```
 git clone https://github.com/noamvel/latestpastes.git
 ```
